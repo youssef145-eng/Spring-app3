@@ -4,9 +4,7 @@ import org.example.springapp3.Entity.TestEntity;
 import org.example.springapp3.Repository.TestRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,5 +46,19 @@ public class TestDao {
         }
         return null;
     }
+public List<TestEntity> findALLUsers(){
+            return this.testRepo.findALLUsers();
+}
+public TestEntity FindUserById(int user_id){
+        return testRepo.findUserById(user_id);
 
+}
+public void ResetPassword(int user_id, String password){
+            this.testRepo.resetpassword(user_id, password);
+
+}
+    public void Deleteuserbyid(Integer user_id){
+        this.testRepo.Deleteuserbyid(user_id);
+
+    }
 }

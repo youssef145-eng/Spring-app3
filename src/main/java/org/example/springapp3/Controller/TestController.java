@@ -49,13 +49,31 @@ else
     return this.testDao.DeleteById(id);
 }
 @PostMapping("/save-user")
-public TestEntity saveTestEntity(@RequestBody TestEntity testEntity){
+public TestEntity saveTestEntity(@RequestBody TestEntity testEntity)
+{
     return this.testDao.SaveUser(testEntity);
 }
 @PostMapping("/update-user")
 public TestEntity updateTestEntity(@RequestBody TestEntity testEntity){
     return this.testDao.UpdateUser(testEntity);
 }
+@GetMapping("/findALLUsers")
+public List<TestEntity> findALLUsers(){
 
+    return this.testDao.findALLUsers();
+}
+@GetMapping("/finduserid")
+public TestEntity findUserById(@RequestParam int id){
+    return this.testDao.FindUserById(id);
+}
+@PostMapping("/resetpassword")
+public void ResetPassword(@RequestBody TestEntity testEntity){
+    this.testDao.ResetPassword(testEntity.getUser_id(),testEntity.getPassword());
+
+}
+@GetMapping("/deleteuserid")
+public void deleteuserbyid(@RequestParam int id){
+    this.testDao.Deleteuserbyid(id);
+}
 
 }
